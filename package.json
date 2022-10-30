@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha spec.js",
+    "test:dev": "JWT=noo DATABASE_URL=postgres://localhost/real_estate_test npm test -- --watch",
     "build": "webpack",
     "build:dev": "npm run build -- --watch --mode=development",
-    "start:dev": "nodemon server --ignore src/ --ignore dist/ & npm run build:dev"
+    "start:dev": " JWT=pinky nodemon server --ignore src/ --ignore dist/ & npm run build:dev"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,19 @@
   },
   "homepage": "https://github.com/kle0247/kl_realestate#readme",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.11",
+    "@reduxjs/toolkit": "^1.8.6",
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "react-router-dom": "^5.3.4",
+    "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
@@ -32,10 +42,13 @@
     "@babel/preset-react": "^7.18.6",
     "axios": "^1.1.3",
     "babel-loader": "^8.2.5",
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0",
     "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
+    "supertest": "^6.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
   }

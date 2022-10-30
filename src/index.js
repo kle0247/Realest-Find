@@ -1,23 +1,24 @@
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import { Provider } from 'react-redux'
-import { Route, HashRouter as Router } from 'react-router-dom'
-import Routes from './Routes';
-// import store from './store';
-
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { Route, HashRouter as Router } from "react-router-dom";
+import Routes from "./Routes";
+import store from '../client/store';
 
 const App = () => {
+  return (
     <div>
-        <Routes />
+      <Routes />
     </div>
-}
+  );
+};
 
-const root = createRoot(document.querySelector('#app')
-)
+const root = createRoot(document.querySelector("#app"));
+
 root.render(
-    // <Provider store={store}>
-        <Router>
-            <App />
-        </Router>    
-    // </Provider>
-)
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>
+);
