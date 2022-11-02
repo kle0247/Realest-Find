@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
 import axios from "axios";
 import { connect } from "react-redux";
+import { login } from "../../store";
 
-function Login() {
+function Login({ login }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  //testing
 
   const handleSubmit = async () => {
     const credentials = {
@@ -14,12 +14,8 @@ function Login() {
       password: password,
     };
 
-    this.props.login(credentials);
+    login(credentials);
   };
-
-  useEffect(() => {
-    handleSubmit()
-  }, {});
 
   return (
     <Box>
@@ -31,9 +27,15 @@ function Login() {
         label="password"
         onChange={(ev) => setPassword(ev.target.value)}
       />
-      <Button onSubmit={handleSubmit}>Login</Button>
+      <Button onClick={handleSubmit}>Login</Button>
     </Box>
   );
+};
+
+const mapDispatch = (dispatch, { history }) => {
+  return {
+    login: (credentials) => dispatch(login(credentials, history)) 
+  }
 }
 
-export default connect()(Login);
+export default connect(null, mapDispatch)(Login);
