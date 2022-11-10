@@ -1,13 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
 
 const NavBar = () => {
     return(
-        <Box>
-            <Link to='/buy'>Buy</Link>
-            <Link to='/rent'>Rent</Link>
-            <Link to='/login'>Sign in</Link>
+        <Box display='flex' flexWrap='wrap' justifyContent='space-between' alignItems='center'>
+            <Box className='crop'>
+                <img src='../../../public/assets/logo/logo_white.png'/>
+            </Box>
+            <Box style={{ padding: '1rem'}}>
+                <Typography>
+                    <Link to='/buy'>Buy</Link>
+                    <Link to='/rent'>Rent</Link>
+                    <Link to='/login'>Sign in</Link>
+                </Typography>
+            </Box>
         </Box>
     )
 };
