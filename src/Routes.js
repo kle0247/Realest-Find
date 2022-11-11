@@ -19,7 +19,7 @@ class Routes extends Component{
                 {/* <Route path='/signup' component={SignUp} /> */}
                 <Route exact  path='/buy'  component={Buy} />
                 <Route exact path='/rent'  component={Rent}/>
-                <Route exact path='/property/:id' exact component={PropertyDetail} />
+                <Route exact path='/property/:id' component={PropertyDetail} />
             </div>
         )
     }
