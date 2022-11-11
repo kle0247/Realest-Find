@@ -14,12 +14,12 @@ class Routes extends Component{
         return(
             <div>
                 <Navbar />
-                <Route path='/' component={Home} />
-                <Route path='/login' component={Login} />
+                <Route exact path='/' component={Home} />
+                <Route exact path='/login'  component={Login} />
                 {/* <Route path='/signup' component={SignUp} /> */}
-                <Route path='/buy' component={Buy} />
-                <Route path='/rent' component={Rent}/>
-                <Route path='/property/:id' component={PropertyDetail} />
+                <Route exact  path='/buy'  component={Buy} />
+                <Route exact path='/rent'  component={Rent}/>
+                <Route exact path='/property/:id' exact component={PropertyDetail} />
             </div>
         )
     }
